@@ -12,20 +12,6 @@ def extract_links(url):
             links.append(href)
     return links
 
-# def extract_article_info(url):
-#     response = requests.get(url)
-#     soup = BeautifulSoup(response.text, 'html.parser')
-#     title = soup.find('title').get_text() if soup.find('title') else None
-#     description = soup.find('meta', attrs={'name': 'description'})
-#     if description:
-#         description = description.get('content')
-#     else:
-#         # If meta description is not found, try extracting from other tags
-#         description_tag = soup.find('meta', property='og:description')
-#         description = description_tag.get('content') if description_tag else None
-#     return title, description
-
-
 # URLs of dawn.com and BBC.com
 dawn_url = 'https://www.dawn.com/'
 bbc_url = 'https://www.bbc.com/'
@@ -37,13 +23,6 @@ bbc_links = extract_links(bbc_url)
 print("Dawn Links:", dawn_links)
 print("BBC Links:", bbc_links)
 
-# Extract article info from dawn.com and BBC.com
-# dawn_article_info = [extract_article_info(link) for link in dawn_links]
-# bbc_article_info = [extract_article_info(link) for link in bbc_links]
-
-# print("Dawn Article Info:", dawn_article_info)
-# print("BBC Article Info:", bbc_article_info)
-# Create a DataFrame from the extracted links
 df_dawn = pd.DataFrame({'Links': dawn_links})
 df_bbc = pd.DataFrame({'Links': bbc_links})
 
